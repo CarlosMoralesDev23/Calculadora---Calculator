@@ -27,7 +27,7 @@ body {
     box-shadow: 0 0 7px #48bfff;
 }
 
-#pantalla{
+.pantalla{
     grid-column: 1 / 5;
     background-color: #090c31;
     color: white;

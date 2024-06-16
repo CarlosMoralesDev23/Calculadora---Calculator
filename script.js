@@ -5,17 +5,13 @@ botones.forEach((boton) => {
     boton.addEventListener("click", () => {
         const botonApretado = boton.textContent;
 
-        if (pantalla.textContent === "0" || pantalla.textContent === "ERROR") {
-            pantalla.textContent = botonApretado;
-        } else {
-            pantalla.textContent += botonApretado;
-        }
-
+        //Clear button
         if (boton.id === "c") {
             pantalla.textContent = "0";
             return;
         }
 
+        //Delete button
         if (boton.id === "borrar") {
             if (
                 pantalla.textContent.length === 1 ||
@@ -28,6 +24,7 @@ botones.forEach((boton) => {
             return;
         }
 
+        //Equals button
         if (boton.id === "igual") {
             try {
                 pantalla.textContent = eval(pantalla.textContent);
@@ -35,6 +32,13 @@ botones.forEach((boton) => {
                 pantalla.textContent = "ERROR";
             }
             return;
+        }
+
+        // Replace 0 with the first number or continue appending numbers/operators
+        if (pantalla.textContent === "0" || pantalla.textContent === "ERROR") {
+            pantalla.textContent = botonApretado;
+        } else {
+            pantalla.textContent += botonApretado;
         }
     });
 });
